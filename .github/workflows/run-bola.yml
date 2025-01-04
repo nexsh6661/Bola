@@ -28,7 +28,7 @@ jobs:
           -v ${{ github.workspace }}:/output \
           bola "${{ github.event.inputs.video_link }}"
 
-    # Step 4: Upload the video to GitHub Release
+    # Step 4: Create GitHub Release
     - name: Create GitHub Release
       id: create_release
       uses: actions/create-release@v1
@@ -37,8 +37,8 @@ jobs:
         release_name: Bola Output
         draft: false
         prerelease: false
-        token: ${{ secrets.GITHUB_TOKEN }}
 
+    # Step 5: Upload the video to the GitHub Release
     - name: Upload bola.mp4 to Release
       uses: actions/upload-release-asset@v1
       with:
