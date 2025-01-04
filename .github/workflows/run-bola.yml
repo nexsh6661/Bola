@@ -33,8 +33,9 @@ jobs:
         id: create_release
         uses: actions/create-release@v1
         with:
-          tag_name: bola-output
-          release_name: Bola Output
+          tag_name: bola-output-${{ github.run_number }}
+          release_name: Bola Output - ${{ github.run_number }}
+
           draft: false
           prerelease: false
         env:
